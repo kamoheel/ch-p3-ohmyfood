@@ -1,9 +1,29 @@
+/** Base **/
 * {
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/**Variables**/
+.header {
+  height: 63px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  box-shadow: 0 3px 4px #cfcfcf;
+}
+.header__img {
+  width: 43%;
+  margin: auto;
+}
+.header i {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
