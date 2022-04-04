@@ -30,8 +30,9 @@ section {
 $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
+$color-primary-light: lighten($color-primary, 35%);
 $color-bg: #f6f6f6;
-$color-darker: darken($color-bg, 12%);
+$color-darker: darken($color-bg, 10%);
 $color-interm: darken($color-bg, 3%);
 $breakpoints: (
     mobile: 480px,
@@ -119,7 +120,50 @@ $breakpoints: (
         padding: 17px 25px;
         border-radius: 26px;
         background: linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
-        box-shadow: 0 5px 10px $color-darker;
+        box-shadow: 0 5px 10px darken($color-darker, 10%);
         }
+    }
+}
+
+.howto {
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    &__list {
+        align-self: center;
+        width: 95%;
+        height: 74px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+        background-color:$color-bg;
+        box-shadow: 0 5px 10px $color-darker;
+        padding-right: 74px;
+        &:hover {
+            background-color: $color-primary-light;
+            i {
+                color: $color-primary;
+            }
+        }
+    }
+    &__nb {
+        font-size: 14px;
+        color: white;
+        background-color: $color-primary;
+        padding: 5px 8.5px 4px 8px;
+        border-radius: 100%;
+        position: relative;
+        left: -12px;
+    }
+    & i {
+        font-size:large;
+        color: #7e7e7e;
+    }
+    &__txt {
+        font-weight: 600;
+        font-size: 16px;
     }
 }

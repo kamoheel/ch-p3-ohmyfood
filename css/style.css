@@ -60,7 +60,7 @@ section {
   height: 55px;
   display: flex;
   background-color: #eeeeee;
-  box-shadow: 0 3px 4px #d7d7d7 inset;
+  box-shadow: 0 3px 4px #dddddd inset;
 }
 .location__btn {
   margin: auto;
@@ -101,7 +101,50 @@ section {
   padding: 17px 25px;
   border-radius: 26px;
   background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
-  box-shadow: 0 5px 10px #d7d7d7;
+  box-shadow: 0 5px 10px #c3c3c3;
+}
+
+.howto {
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.howto__list {
+  align-self: center;
+  width: 95%;
+  height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #f6f6f6;
+  box-shadow: 0 5px 10px #dddddd;
+  padding-right: 74px;
+}
+.howto__list:hover {
+  background-color: #f2eafb;
+}
+.howto__list:hover i {
+  color: #9356DC;
+}
+.howto__nb {
+  font-size: 14px;
+  color: white;
+  background-color: #9356DC;
+  padding: 5px 8.5px 4px 8px;
+  border-radius: 100%;
+  position: relative;
+  left: -12px;
+}
+.howto i {
+  font-size: large;
+  color: #7e7e7e;
+}
+.howto__txt {
+  font-weight: 600;
+  font-size: 16px;
 }
 
 /*# sourceMappingURL=style.css.map */
