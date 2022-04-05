@@ -35,6 +35,21 @@ $shadow: (
         @content
     }
 };
+@mixin img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+};
+@mixin btn {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 17px 25px;
+    border-radius: 26px;
+    background: linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
+    box-shadow: map-get($shadow, shadow-darker);
+}
+
 
 
 /** Base **/
@@ -60,6 +75,9 @@ a {
 }
 
 /**Layout**/
+main {
+    height: 1415px;
+}
 section, footer {
     padding: 20px;
     @include tablet-only() {
@@ -69,9 +87,6 @@ section, footer {
         padding: 30px 150px;
     }
 }
-
-
-
 
 .header {
     height: 63px;
@@ -92,9 +107,8 @@ section, footer {
         }
     }
     & i {
-        display: none;
-        // font-size: 18px;
-        // padding-left: 20px;
+        font-size: 18px;
+        padding-left: 20px;
     }
 }
 
@@ -140,13 +154,7 @@ section, footer {
     &__btn {
         margin-top: 25px;
         & a {
-        color: white;
-        font-size: 16px;
-        font-weight: 500;
-        padding: 17px 25px;
-        border-radius: 26px;
-        background: linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
-        box-shadow: map-get($shadow, shadow-darker);
+            @include btn;
         }
     }
 }
@@ -171,12 +179,12 @@ section, footer {
     &__item {
         width: 95%;
         height: 74px;
+        border-radius: 20px;
+        box-shadow: map-get($shadow, shadow-base);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-radius: 20px;
         background-color:$color-bg;
-        box-shadow: map-get($shadow, shadow-base);
         padding-right: 74px; 
         &:hover {
             background-color: $color-primary-light;
@@ -242,7 +250,7 @@ section, footer {
         height: 700px;
     }
     &__cards {
-        height: 95%;
+        height: 90%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -285,9 +293,7 @@ section, footer {
         }
     }
     &__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        @include img;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
@@ -382,5 +388,85 @@ section, footer {
         color: white;
         font-size: 18px;
         margin: 5px 0;
+    }
+}
+
+//Menu style//
+.figure {
+    width: 100%;
+    margin: auto;
+    &__img {
+        @include img;
+    }
+}
+
+.menu {
+    padding-bottom: 50px;
+    background: $color-bg;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    position: relative;
+    top: -41px;
+    height: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 20px;
+    }
+    &__h1 {
+        font-size: 28px;
+        font-family: "Shrikhand", sans serif;
+    }
+    &__h2 {
+        font-size: 17px;
+        font-weight: 400;
+        &--underline {
+            font-size: 17px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid $color-tertiary;  
+        }
+    }
+    &__items {
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    &__item {
+        padding: 15px;
+        height: 70px;
+        border-radius: 15px;
+        box-shadow: map-get($shadow, shadow-base);
+        width: 100%;
+        background-color: white;
+    }
+    &__h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+    &__priceline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 30px;
+    }
+    &__txt {
+        font-size: 15px;
+        font-weight: 400;
+        margin: 0;
+    }
+    &__price {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    & a {
+        align-self: center;
+        @include btn;
+        width: 60%;
+        text-align: center;
     }
 }

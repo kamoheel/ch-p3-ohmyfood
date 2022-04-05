@@ -23,6 +23,10 @@ a {
 }
 
 /**Layout**/
+main {
+  height: 1415px;
+}
+
 section, footer {
   padding: 20px;
 }
@@ -63,7 +67,8 @@ section, footer {
   }
 }
 .header i {
-  display: none;
+  font-size: 18px;
+  padding-left: 20px;
 }
 
 .location {
@@ -146,12 +151,12 @@ section, footer {
 .howto__item {
   width: 95%;
   height: 74px;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px #dddddd;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 20px;
   background-color: #f6f6f6;
-  box-shadow: 0 5px 10px #dddddd;
   padding-right: 74px;
 }
 .howto__item:hover {
@@ -233,7 +238,7 @@ section, footer {
   }
 }
 .restaurants__cards {
-  height: 95%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -375,6 +380,93 @@ section, footer {
   color: white;
   font-size: 18px;
   margin: 5px 0;
+}
+
+.figure {
+  width: 100%;
+  margin: auto;
+}
+.figure__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu {
+  padding-bottom: 50px;
+  background: #f6f6f6;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  position: relative;
+  top: -41px;
+  height: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+}
+.menu__h1 {
+  font-size: 28px;
+  font-family: "Shrikhand", sans serif;
+}
+.menu__h2 {
+  font-size: 17px;
+  font-weight: 400;
+}
+.menu__h2--underline {
+  font-size: 17px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #99E2D0;
+}
+.menu__items {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.menu__item {
+  padding: 15px;
+  height: 70px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px #dddddd;
+  width: 100%;
+  background-color: white;
+}
+.menu__h3 {
+  font-size: 18px;
+  margin: 0;
+}
+.menu__priceline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+.menu__txt {
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+}
+.menu__price {
+  font-size: 15px;
+  font-weight: 600;
+}
+.menu a {
+  align-self: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 17px 25px;
+  border-radius: 26px;
+  background: linear-gradient(0deg, #9356DC 0%, #FF79DA 100%);
+  box-shadow: 0 5px 10px #c3c3c3;
+  width: 60%;
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */
