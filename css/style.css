@@ -1,3 +1,5 @@
+/**Variables**/
+/**Mixins**/
 /** Base **/
 * {
   box-sizing: border-box;
@@ -24,9 +26,17 @@ a {
 section {
   padding: 20px;
 }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  section {
+    padding: 20px 100px;
+  }
+}
+@media screen and (min-width: 992px) {
+  section {
+    padding: 30px 150px;
+  }
+}
 
-/**Variables**/
-/**Mixins**/
 .header {
   height: 63px;
   display: flex;
@@ -57,6 +67,7 @@ section {
 }
 
 .location {
+  padding: 0;
   height: 55px;
   display: flex;
   background-color: #eeeeee;
@@ -84,6 +95,11 @@ section {
   background-color: #f6f6f6;
   height: 287px;
 }
+@media screen and (min-width: 768px) {
+  .explore {
+    height: 250px;
+  }
+}
 .explore__heading {
   padding: 0 30px;
   margin-bottom: 0;
@@ -107,13 +123,27 @@ section {
 
 .howto {
   height: 440px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
+}
+@media screen and (min-width: 768px) {
+  .howto {
+    height: auto;
+  }
 }
 .howto__list {
-  align-self: center;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .howto__list {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.howto__item {
   width: 95%;
   height: 74px;
   display: flex;
@@ -124,11 +154,26 @@ section {
   box-shadow: 0 5px 10px #dddddd;
   padding-right: 74px;
 }
-.howto__list:hover {
+.howto__item:hover {
   background-color: #f2eafb;
 }
-.howto__list:hover i {
+.howto__item:hover i {
   color: #9356DC;
+}
+@media screen and (min-width: 768px) {
+  .howto__item {
+    width: 30%;
+    padding: 0 45px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: center;
+    height: auto;
+  }
+}
+@media screen and (min-width: 992px) {
+  .howto__item {
+    height: 150px;
+  }
 }
 .howto__nb {
   font-size: 14px;
@@ -139,21 +184,68 @@ section {
   position: relative;
   left: -12px;
 }
+@media screen and (min-width: 768px) {
+  .howto__nb {
+    left: 0;
+    top: -12px;
+  }
+}
 .howto i {
   font-size: large;
   color: #7e7e7e;
+}
+@media screen and (min-width: 768px) {
+  .howto i {
+    margin-top: 20px;
+    font-size: 20px;
+  }
 }
 .howto__txt {
   font-weight: 600;
   font-size: 16px;
 }
+@media screen and (min-width: 768px) {
+  .howto__txt {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .howto__txt {
+    margin-bottom: 45px;
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .howto__txt {
+    margin-bottom: 30px;
+    font-size: 17px;
+  }
+}
 
 .restaurants {
   height: 1226px;
+  background-color: #f6f6f6;
+}
+@media screen and (min-width: 768px) {
+  .restaurants {
+    height: 700px;
+  }
+}
+.restaurants__cards {
+  height: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: #f6f6f6;
+}
+@media screen and (min-width: 768px) {
+  .restaurants__cards {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+    height: 80%;
+  }
 }
 
 .card {
@@ -164,6 +256,11 @@ section {
   flex-direction: column;
   border-radius: 20px;
   box-shadow: 0 5px 10px #dddddd;
+}
+@media screen and (min-width: 768px) {
+  .card {
+    width: 48%;
+  }
 }
 .card__figure {
   width: 100%;
