@@ -75,9 +75,6 @@ a {
 }
 
 /**Layout**/
-main {
-    height: 1415px;
-}
 section, footer {
     padding: 20px;
     @include tablet-only() {
@@ -160,6 +157,7 @@ section, footer {
 }
 
 .howto {
+    background-color: white;
     height: 440px;
     @include tablet-desktop(){
         height: auto;
@@ -392,6 +390,10 @@ section, footer {
 }
 
 //Menu style//
+main {
+    background-color: $color-bg;
+}
+
 .figure {
     width: 100%;
     margin: auto;
@@ -407,7 +409,7 @@ section, footer {
     border-top-right-radius: 40px;
     position: relative;
     top: -41px;
-    height: 1200px;
+    height: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

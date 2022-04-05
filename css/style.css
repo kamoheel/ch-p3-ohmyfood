@@ -23,10 +23,6 @@ a {
 }
 
 /**Layout**/
-main {
-  height: 1415px;
-}
-
 section, footer {
   padding: 20px;
 }
@@ -127,6 +123,7 @@ section, footer {
 }
 
 .howto {
+  background-color: white;
   height: 440px;
 }
 @media screen and (min-width: 768px) {
@@ -382,6 +379,10 @@ section, footer {
   margin: 5px 0;
 }
 
+main {
+  background-color: #f6f6f6;
+}
+
 .figure {
   width: 100%;
   margin: auto;
@@ -399,7 +400,7 @@ section, footer {
   border-top-right-radius: 40px;
   position: relative;
   top: -41px;
-  height: 1200px;
+  height: 1400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
