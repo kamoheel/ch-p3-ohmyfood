@@ -38,27 +38,62 @@ section, footer {
 }
 
 /**Loading Spinner animation**/
-#loader {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border: 16px solid #9356DC;
+.loader {
+  position: fixed;
+  left: 30%;
+  top: 30%;
+  animation: opacity 3s linear forwards;
+}
+.loader__bar {
   border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.loader__bar--primary {
+  position: absolute;
+  top: 0px;
   border-top: 16px solid #9356DC;
-  border-right: 16px solid #9356DC;
-  border-bottom: 16px solid #FF79DA;
+  border-bottom: 16px solid #9356DC;
+  animation: spin 3s ease-in-out infinite;
+}
+.loader__bar--secondary {
+  position: absolute;
+  top: 0px;
+  border-right: 16px solid #FF79DA;
+  animation: spin 3s 500ms ease-in-out infinite;
+}
+.loader__bar--tertiary {
+  position: absolute;
+  top: 0px;
   border-left: 16px solid #99E2D0;
-  width: 120px;
-  height: 120px;
-  animation: spin 3s linear infinite;
+  animation: spin 3s 1s ease-in-out infinite;
+}
+@media screen and (min-width: 768px) {
+  .loader {
+    left: 39%;
+    top: 30%;
+  }
+  .loader__bar {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 @keyframes spin {
   0% {
     transform: rotate(0deg);
+    opacity: 1;
   }
   100% {
     transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
     opacity: 0;
   }
 }
@@ -98,6 +133,7 @@ section, footer {
 .header__img {
   width: 185px;
   margin: auto;
+  position: relative;
 }
 @media screen and (min-width: 992px) {
   .header__img {
@@ -105,24 +141,42 @@ section, footer {
   }
 }
 .header i {
+  position: absolute;
+  left: 0px;
+  top: 30px;
   font-size: 18px;
   padding-left: 20px;
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .header i {
+    font-size: 22px;
+    left: 30px;
+    top: 45px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .header i {
+    font-size: 25px;
+    top: 50px;
+    left: 70px;
+  }
 }
 
 .location {
   padding: 0;
   height: 55px;
   display: flex;
+  align-items: center;
   background-color: #eeeeee;
   box-shadow: 0 3px 4px #dddddd inset;
 }
 .location__btn {
   margin: auto;
-  width: 185px;
+  width: 195px;
   color: #353535;
 }
 .location__btn--search {
-  width: 150px;
+  width: 90%;
   border: none;
   background: none;
   font-weight: 500;
@@ -198,10 +252,9 @@ section, footer {
   border-radius: 20px;
   box-shadow: 0 5px 10px #dddddd;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   background-color: #f6f6f6;
-  padding-right: 74px;
 }
 .howto__item:hover {
   background-color: #f2eafb;
@@ -235,6 +288,8 @@ section, footer {
 }
 @media screen and (min-width: 768px) {
   .howto__nb {
+    font-size: 20px;
+    padding: 5px 10px 4px 10px;
     left: 0;
     top: -12px;
   }
@@ -242,21 +297,25 @@ section, footer {
 .howto i {
   font-size: large;
   color: #7e7e7e;
+  padding-left: 10px;
 }
 @media screen and (min-width: 768px) {
   .howto i {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 22px;
+    padding-left: 0;
   }
 }
 .howto__txt {
   font-weight: 600;
   font-size: 16px;
+  padding-left: 20px;
 }
 @media screen and (min-width: 768px) {
   .howto__txt {
     text-align: center;
     margin-top: 20px;
+    padding-left: 0;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -440,6 +499,11 @@ main {
   height: 100%;
   object-fit: cover;
 }
+@media screen and (min-width: 768px) {
+  .figure {
+    height: 350px;
+  }
+}
 
 .menu {
   padding-bottom: 50px;
@@ -460,15 +524,32 @@ main {
   flex-direction: column;
   justify-content: space-between;
 }
+@media screen and (min-width: 768px) {
+  .menu__form {
+    width: 90%;
+    margin: auto;
+  }
+}
 .menu__heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 20px;
 }
+@media screen and (min-width: 768px) {
+  .menu__heading {
+    width: 90%;
+    margin: auto;
+  }
+}
 .menu__h1 {
   font-size: 27px;
   font-family: "Shrikhand", sans serif;
+}
+@media screen and (min-width: 992px) {
+  .menu__h1 {
+    font-size: 35px;
+  }
 }
 .menu__h2 {
   font-size: 17px;
@@ -479,8 +560,18 @@ main {
   padding-bottom: 5px;
   border-bottom: 3px solid #99E2D0;
 }
+@media screen and (min-width: 992px) {
+  .menu__h2--underline {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .menu__h2 {
+    font-size: 22px;
+    flex-basis: 100%;
+  }
+}
 .menu__items {
-  min-height: 350px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -497,9 +588,18 @@ main {
 .menu__items:nth-child(3n) {
   animation-delay: 750ms;
 }
+@media screen and (min-width: 992px) {
+  .menu__items {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
 .menu__item {
   background-color: white;
   padding: 15px 0 12px 12px;
+  margin-top: 10px;
+  margin-bottom: 8px;
   min-height: 20%;
   max-height: 25%;
   border-radius: 15px;
@@ -510,6 +610,13 @@ main {
 }
 .menu__item i {
   display: none;
+}
+@media screen and (min-width: 992px) {
+  .menu__item {
+    padding: 30px 20px;
+    min-height: 120px;
+    width: 48%;
+  }
 }
 .menu__item--txtleft {
   width: 100%;
@@ -568,6 +675,12 @@ main {
 .menu__btn:hover {
   background: linear-gradient(0deg, #ae80e5 0%, #fface8 100%);
   box-shadow: 0 3px 10px #5d5d5d;
+}
+@media screen and (min-width: 992px) {
+  .menu__btn {
+    width: 40%;
+    height: 60px;
+  }
 }
 
 /**items on the menu appearing one at a time**/

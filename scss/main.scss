@@ -93,24 +93,53 @@ section, footer {
 }
 
 /**Loading Spinner animation**/
-#loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border: 16px solid $color-primary;
-    border-radius: 50%;
-    border-top: 16px solid $color-primary;
-    border-right: 16px solid $color-primary;
-    border-bottom: 16px solid $color-secondary;
-    border-left: 16px solid $color-tertiary;
-    width: 120px;
-    height: 120px;
-    animation: spin 3s linear infinite;
+.loader {
+    position: fixed;
+    left: 30%;
+    top: 30%;
+    animation: opacity 3s linear forwards;
+    &__bar {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        &--primary {
+            position: absolute;
+            top: 0px;
+            border-top: 16px solid $color-primary;
+            border-bottom: 16px solid $color-primary;
+            animation: spin 3s ease-in-out infinite;
+        }
+        &--secondary {
+            position: absolute;
+            top: 0px;
+            border-right: 16px solid $color-secondary;
+            animation: spin 3s 500ms ease-in-out infinite;
+        }
+        &--tertiary {
+            position: absolute;
+            top: 0px;
+            border-left: 16px solid $color-tertiary;
+            animation: spin 3s 1s ease-in-out infinite;
+        }
+    }
+    @include tablet-desktop(){
+        left: 39%;
+        top: 30%;
+        &__bar {
+            width: 200px;
+            height: 200px;
+        }
+    }
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
+    0% { transform: rotate(0deg); opacity: 1; }
   100% { transform: rotate(360deg); opacity: 0;}
+}
+
+@keyframes opacity {
+    0% { opacity: 1;}
+    100% { opacity: 0;}
 }
 
 #content {
@@ -139,13 +168,27 @@ section, footer {
     &__img {
         width: 185px;
         margin: auto;
+        position: relative;
         @include desktop-only(){
             width: 250px;
         }
     }
     & i {
+        position: absolute;
+        left: 0px;
+        top: 30px;
         font-size: 18px;
         padding-left: 20px;
+        @include tablet-only(){
+            font-size: 22px;
+            left: 30px;
+            top: 45px;
+        }
+        @include desktop-only(){
+            font-size: 25px;
+            top: 50px;
+            left: 70px;
+        }
     }
 }
 
@@ -153,14 +196,15 @@ section, footer {
     padding: 0;
     height: 55px;
     display: flex;
+    align-items: center;
     background-color: $color-interm;
     box-shadow: map-get($shadow, shadow-inset);
     &__btn {
         margin: auto;
-        width: 185px;
+        width: 195px;
         color: #353535;
         &--search {
-            width: 150px;
+            width: 90%;
             border: none;
             background: none;
             font-weight: 500;
@@ -220,10 +264,9 @@ section, footer {
         border-radius: 20px;
         box-shadow: map-get($shadow, shadow-base);
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         background-color:$color-bg;
-        padding-right: 74px; 
         &:hover {
             background-color: $color-primary-light;
             i {
@@ -251,6 +294,8 @@ section, footer {
         position: relative;
         left: -12px;
         @include tablet-desktop() {
+            font-size: 20px;
+            padding: 5px 10px 4px 10px;
             left: 0;
             top: -12px;
         }
@@ -258,17 +303,21 @@ section, footer {
     & i {
         font-size:large;
         color: #7e7e7e;
+        padding-left: 10px;
         @include tablet-desktop() {
             margin-top: 20px;
-            font-size: 20px;
+            font-size: 22px;
+            padding-left: 0;
         }
     }
     &__txt {
         font-weight: 600;
         font-size: 16px;
+        padding-left: 20px;
         @include tablet-desktop() {
             text-align: center;
             margin-top: 20px;
+            padding-left: 0;
         }
         @include tablet-only() {
             margin-bottom: 45px;
@@ -439,6 +488,9 @@ main {
     &__img {
         @include img;
     }
+    @include tablet-desktop() {
+        height: 350px;
+    }
 }
 
 .menu {
@@ -458,16 +510,27 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include tablet-desktop(){
+            width: 90%;
+            margin: auto;
+        }
     }
     &__heading {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-right: 20px;
+        @include tablet-desktop(){
+            width: 90%;
+            margin: auto;
+        }
     }
     &__h1 {
         font-size: 27px;
         font-family: "Shrikhand", sans serif;
+        @include desktop-only(){
+            font-size: 35px;
+        }
     }
     &__h2 {
         font-size: 17px;
@@ -476,10 +539,17 @@ main {
             font-size: 17px;
             padding-bottom: 5px;
             border-bottom: 3px solid $color-tertiary;  
+            @include desktop-only(){
+                font-size: 22px;
+            }
+        }
+        @include desktop-only(){
+            font-size: 22px;
+            flex-basis: 100%;
         }
     }
     &__items {
-        min-height: 350px;
+        // min-height: 350px;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -491,10 +561,17 @@ main {
                 animation-delay: ($i * 250ms);
             }
         }
+        @include desktop-only(){
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
     }
     &__item {
         background-color: white;
         padding: 15px 0 12px 12px;
+        margin-top: 10px;
+        margin-bottom: 8px;
         min-height: 20%;
         max-height: 25%;
         border-radius: $border-radius-item;
@@ -504,6 +581,11 @@ main {
         cursor: pointer;
         & i {
             display: none;
+        }
+        @include desktop-only(){
+            padding: 30px 20px;
+            min-height: 120px;
+            width: 48%;
         }
     }
     &__item--txtleft {
@@ -552,6 +634,10 @@ main {
         @include btn;
         width: 60%;
         text-align: center;
+        @include desktop-only(){
+            width: 40%;
+            height: 60px;
+        }
     }
 }
 
