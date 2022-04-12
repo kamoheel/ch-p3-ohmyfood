@@ -29,11 +29,54 @@ body {
 
 h1, h2 {
   font-size: 25px;
-  font-weight: 700px;
+  font-weight: 700;
 }
 
 a {
   text-decoration: none;
+}
+
+.card__heart {
+  font-size: 25px;
+  padding: 10px;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+}
+.card__heart::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f004";
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+.card__heart::after {
+  font-family: "Font Awesome 6 Free";
+  content: "\f004";
+  font-weight: 900;
+  background: linear-gradient(200deg, #9356DC 0%, #FF79DA 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+.card__heart:hover::before, .card__heart:active::before {
+  opacity: 0;
+}
+.card__heart:hover::after, .card__heart:active::after {
+  opacity: 1;
 }
 
 .location {
@@ -110,47 +153,8 @@ a {
   font-weight: 300;
   font-size: 17px;
 }
-.card__heart {
-  font-size: 25px;
-  padding: 10px;
-  width: 25px;
-  height: 25px;
-  position: relative;
-  cursor: pointer;
-}
-.card__heart::before {
-  font-family: "Font Awesome 6 Free";
-  content: "\f004";
-  font-weight: 500;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 1;
-  transition: opacity 200ms ease-in-out;
-}
-.card__heart::after {
-  font-family: "Font Awesome 6 Free";
-  content: "\f004";
-  font-weight: 900;
-  background: linear-gradient(200deg, #9356DC 0%, #FF79DA 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 200ms ease-in-out;
-}
-.card__heart:hover::before, .card__heart:active::before {
-  opacity: 0;
-}
-.card__heart:hover::after, .card__heart:active::after {
-  opacity: 1;
+.card:hover {
+  box-shadow: 0 5px 10px #c3c3c3;
 }
 
 .header {
@@ -238,15 +242,20 @@ a {
 
 /**Loading Spinner animation**/
 .loader {
-  width: 40%;
+  width: 150px;
   height: 150px;
   position: fixed;
-  left: 33%;
-  top: 30%;
+  /**To center the loader**/
+  left: 50%;
+  top: 50%;
+  margin-top: -75px;
+  /**negative half of the height**/
+  margin-left: -75px;
+  /**negative half of the width**/
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  animation: opacity 3s linear forwards;
+  animation: opacity 2.5s linear forwards;
 }
 .loader--line {
   width: 100%;
@@ -255,9 +264,9 @@ a {
 }
 .loader__circle {
   border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  animation: opacity 3s ease-in-out infinite alternate;
+  width: 50px;
+  display: flex;
+  animation: opacity 2.5s ease-in-out infinite alternate;
 }
 .loader__circle:nth-child(1n) {
   animation-delay: 250ms;
@@ -269,6 +278,7 @@ a {
   animation-delay: 750ms;
 }
 .loader__circle .fas {
+  margin: auto;
   font-size: 20px;
 }
 .loader__circle--primary {
@@ -280,23 +290,9 @@ a {
 .loader__circle--tertiary {
   color: #99E2D0;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 992px) {
   .loader {
-    width: 25%;
-    height: 200px;
-    left: 42%;
-    top: 20%;
-  }
-  .loader__bar {
-    width: 200px;
-    height: 200px;
-  }
-}
-@media screen and (min-width: 992px) {
-  .loader {
-    top: 30%;
-    left: 42%;
-    height: 250px;
+    top: 35%;
   }
 }
 
@@ -323,12 +319,12 @@ a {
 #content {
   position: relative;
   animation: content 1s backwards;
-  animation-delay: 3s;
+  animation-delay: 2s;
 }
 
 @keyframes content {
   from {
-    bottom: -100px;
+    bottom: -50px;
     opacity: 0;
   }
   to {
@@ -418,16 +414,11 @@ a {
 @media screen and (min-width: 768px) {
   .howto__item {
     width: 30%;
-    padding: 0 45px;
+    height: 75%;
+    padding: 0 45px 20px 45px;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-self: center;
-    height: auto;
-  }
-}
-@media screen and (min-width: 992px) {
-  .howto__item {
-    height: 150px;
   }
 }
 .howto__nb {
@@ -460,8 +451,8 @@ a {
   }
 }
 .howto__txt {
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 17px;
   padding-left: 20px;
 }
 @media screen and (min-width: 768px) {
@@ -474,7 +465,7 @@ a {
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .howto__txt {
     margin-bottom: 45px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -529,7 +520,6 @@ main {
 }
 
 .menu {
-  padding-bottom: 50px;
   background-color: #f6f6f6;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
@@ -566,8 +556,9 @@ main {
   }
 }
 .menu__h1 {
-  font-size: 27px;
   font-family: "Shrikhand", sans serif;
+  font-size: 29px;
+  font-weight: 400;
 }
 @media screen and (min-width: 992px) {
   .menu__h1 {
@@ -575,11 +566,11 @@ main {
   }
 }
 .menu__h2 {
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 300;
 }
 .menu__h2--underline {
-  font-size: 17px;
+  font-size: 18px;
   padding-bottom: 5px;
   border-bottom: 3px solid #99E2D0;
 }
@@ -601,6 +592,7 @@ main {
   justify-content: space-around;
   /**Animation for meals appearing on the page**/
   animation: items 1000ms ease-in-out backwards;
+  margin-bottom: 15px;
 }
 .menu__items:nth-child(1n) {
   animation-delay: 250ms;
@@ -627,6 +619,8 @@ main {
   max-height: 25%;
   border-radius: 15px;
   box-shadow: 0 3px 10px #dddddd;
+  overflow: hidden;
+  /**To hide the animation sliding from the right**/
   width: 100%;
   position: relative;
   cursor: pointer;
@@ -645,7 +639,7 @@ main {
   width: 100%;
 }
 .menu__h3 {
-  font-size: 17px;
+  font-size: 18px;
   margin: 0;
 }
 .menu__priceline {
@@ -655,8 +649,8 @@ main {
   height: 30px;
 }
 .menu__txt {
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 300;
   margin: 0;
   /**ellipsis**/
   white-space: nowrap;
@@ -734,7 +728,7 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  width: 18%;
+  width: 20%;
   height: 100%;
   display: flex;
   background-color: #99E2D0;
@@ -742,11 +736,11 @@ main {
   border-bottom-right-radius: 15px;
   z-index: 1;
   cursor: pointer;
-  animation: checkbox 100ms ease-in-out;
+  animation: checkbox 350ms -50ms ease-in-out;
 }
 .menu__item:hover > .menu__item--animation > .menu__icon {
   margin: auto;
-  animation: checkbox 100ms;
+  animation: rotate 350ms ease-in-out;
   z-index: 2;
 }
 .menu__item:hover > .menu__item--animation > .menu__icon i {
@@ -771,6 +765,14 @@ main {
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(-270deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 

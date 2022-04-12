@@ -15,7 +15,6 @@ main {
 }
 
 .menu {
-    padding-bottom: 50px;
     background-color: $color-bg;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
@@ -47,17 +46,18 @@ main {
         }
     }
     &__h1 {
-        font-size: 27px;
         font-family: "Shrikhand", sans serif;
+        font-size: 29px;
+        font-weight: 400;
         @include desktop-only(){
             font-size: 35px;
         }
     }
     &__h2 {
-        font-size: 17px;
-        font-weight: 400;
+        font-size: 18px;
+        font-weight: 300;
         &--underline {
-            font-size: 17px;
+            font-size: 18px;
             padding-bottom: 5px;
             border-bottom: 3px solid $color-tertiary;  
             @include desktop-only(){
@@ -77,6 +77,7 @@ main {
         justify-content: space-around;
         /**Animation for meals appearing on the page**/
         animation: items 1000ms ease-in-out backwards;
+        margin-bottom: 15px;
         @for $i from 1 through 3 {
             &:nth-child(#{$i}n) {
                 animation-delay: ($i * 250ms);
@@ -97,6 +98,7 @@ main {
         max-height: 25%;
         border-radius: $border-radius-item;
         box-shadow: 0 3px 10px $color-darker;
+        overflow: hidden; /**To hide the animation sliding from the right**/
         width: 100%;
         position: relative;
         cursor: pointer;
@@ -113,7 +115,7 @@ main {
         width: 100%;
     }
     &__h3 {
-        font-size: 17px;
+        font-size: 18px;
         margin: 0;
     }
     &__priceline {
@@ -123,8 +125,8 @@ main {
         height: 30px;
     }
     &__txt {
-        font-size: 14px;
-        font-weight: 400;
+        font-size: 15px;
+        font-weight: 300;
         margin: 0;
         /**ellipsis**/
         white-space: nowrap;
@@ -190,7 +192,7 @@ main {
         position: absolute;
         top: 0;
         right: 0;
-        width: 18%;
+        width: 20%;
         height: 100%;
         display: flex;
         background-color: $color-tertiary;
@@ -206,10 +208,10 @@ main {
                 cursor: pointer;
             }
             margin: auto;
-            animation: checkbox 100ms;
+            animation: rotate 350ms ease-in-out;
             z-index:2;
         }
-        animation: checkbox 100ms ease-in-out;
+        animation: checkbox 350ms -50ms ease-in-out;
     }  
 }
 
@@ -219,4 +221,9 @@ main {
     50% { transform: translateX(50px);}
     75% { transform: translateX(25px);}
     100% { transform: translateX(0);}
+}
+
+@keyframes rotate {
+    0% { transform: rotate(-270deg);}
+    100% { transform: rotate(0deg);}
 }
