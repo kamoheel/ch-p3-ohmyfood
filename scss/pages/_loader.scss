@@ -20,7 +20,6 @@
     &__circle {
         border-radius: 50%;
         width: 50px;
-        // height: 180px;
         display: flex;
         animation: opacity 2.5s ease-in-out infinite alternate;
         @for $i from 1 through 3 {
@@ -42,17 +41,17 @@
             color: $color-tertiary;
         }
     }
-    @include tablet-only(){
-        top: 35%;
-    }
+    // @include tablet-only(){
+    //     top: 35%;
+    // }
 }
 
 @keyframes opacity {
     0% { opacity: 1;}
     20% { opacity: .2;}
-    40% {opacity: .8;}
-    60% {opacity: .3;}
-    80% {opacity: .9;}
+    40% { opacity: .8;}
+    60% { opacity: .3;}
+    80% { opacity: .9;}
     100% { opacity: 0;}
 }
 

@@ -290,11 +290,6 @@ a {
 .loader__circle--tertiary {
   color: #99E2D0;
 }
-@media screen and (min-width: 768px) and (max-width: 992px) {
-  .loader {
-    top: 35%;
-  }
-}
 
 @keyframes opacity {
   0% {
@@ -590,9 +585,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-bottom: 15px;
   /**Animation for meals appearing on the page**/
   animation: items 1000ms ease-in-out backwards;
-  margin-bottom: 15px;
 }
 .menu__items:nth-child(1n) {
   animation-delay: 250ms;

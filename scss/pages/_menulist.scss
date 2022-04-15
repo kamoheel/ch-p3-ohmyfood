@@ -75,9 +75,9 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        margin-bottom: 15px;
         /**Animation for meals appearing on the page**/
         animation: items 1000ms ease-in-out backwards;
-        margin-bottom: 15px;
         @for $i from 1 through 3 {
             &:nth-child(#{$i}n) {
                 animation-delay: ($i * 250ms);
